@@ -50,7 +50,7 @@ backButton.addEventListener("click", () => {
   }
   backButton.style.display = "none";
   headerPictureEl.style.display = "block";
-  lowContent.style.display = "block";
+  /*   lowContent.style.display = "block"; */
 });
 
 footerContent.addEventListener("animationend", () => {
