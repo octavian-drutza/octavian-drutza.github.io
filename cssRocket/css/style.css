@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: url(/css_rocket/img/main_back.jpg);
+  background-size: cover;
+  background-position: unset;
+}
+
+.how-to {
+  padding: 0 20px 0 20px;
+  display: inline-block;
+  width: 1000px;
+  margin-top: 30px;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 8px black;
+  text-align: center;
+}
+
+/* score container */
+.score-container {
+  padding: 0 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 1000px;
+  margin-top: 20px;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 8px black;
+}
+
+.start-button {
+  font-size: 20px;
+}
+
+.start-button:hover {
+  color: blue;
+}
+
+.start-button:active {
+  transform: scale(0.97);
+}
+
+.start-button:focus {
+  outline: none;
+}
+
+/* main container */
+
+.main-container {
+  --height: 650px;
+  background: url(/css_rocket/img/back.jpg);
+  background-size: cover;
+  background-position: unset;
+  width: 1000px;
+  height: var(--height);
+  box-shadow: 1px 1px 8px 1px #fff;
+  border: solid 2px white;
+}
+
+.wiggle-container {
+  animation-name: wiggle-container;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wiggle-container {
+  0% {
+    width: 1000px;
+  }
+  50% {
+    width: 1007px;
+  }
+  100% {
+    left: 1000px;
+  }
+}
+
+.center-message {
+  display: none;
+  color: #fff;
+  font-size: 400px;
+  text-align: center;
+  opacity: 65%;
+}
+
+/* rocket */
+
+.rocket {
+  display: block;
+  --rocket-start: 50vw;
+  --rocket-bottom: 600px;
+  /*   border: 1px solid white; */
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: var(--rocket-start);
+  top: var(--rocket-bottom);
+}
+
+.fas.fa-space-shuttle {
+  font-size: 40px;
+  color: ghostwhite;
+  transform: rotate(270deg);
+}
+
+.rocket-animation-left {
+  animation-name: rocket-left;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  --max-left: -1000px;
+}
+
+@keyframes rocket-left {
+  0% {
+    left: var(--rocket-start);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    left: var(--max-left);
+  }
+}
+
+.rocket-animation-right {
+  animation-name: rocket-right;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  --max-right: 2000px;
+}
+
+@keyframes rocket-right {
+  0% {
+    left: var(--rocket-start);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  100% {
+    left: var(--max-right);
+  }
+}
+
+/* animation width responsivness */
+/* 
+@media only screen and (max-width: 1600px) {
+  .rocket-animation-left {
+    --max-left: -100px;
+  }
+
+  .rocket-animation-right {
+    --max-right: 1200px;
+  }
+} */
+
+.rocket-animation-stop-left {
+  animation-name: rocket-stop-left;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+}
+
+@keyframes rocket-stop-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(7deg);
+  }
+  85% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rocket-animation-stop-right {
+  animation-name: rocket-stop-right;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+}
+
+@keyframes rocket-stop-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-7deg);
+  }
+  85% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* stars */
+
+.star {
+  --height: 15px;
+  --width: 15px;
+  --delay: 0s;
+  --speed: 5s;
+  --angle: 50vw;
+  --start-position: 10vw;
+  --blink: 5s;
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  left: var(--start-position);
+  height: var(--height);
+  width: var(--width);
+  border-radius: 50%;
+  background-image: radial-gradient(
+    #99ffff,
+    #99ffff 10%,
+    rgba(153, 255, 255, 0) 56%
+  );
+  animation: my-name-is-star var(--speed) infinite var(--delay) linear,
+    fade-frames 200ms infinite var(--delay),
+    scale-frames var(--blink) infinite var(--delay);
+}
+
+@keyframes my-name-is-star {
+  0% {
+    left: var(--start-position);
+  }
+  100% {
+    left: var(--angle);
+    top: 90vh;
+  }
+}
+
+@keyframes fade-frames {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-frames {
+  0% {
+    -webkit-transform: scale3d(0.4, 0.4, 1);
+    transform: scale3d(0.4, 0.4, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(2.2, 2.2, 1);
+    transform: scale3d(2.2, 2.2, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(0.4, 0.4, 1);
+    transform: scale3d(0.4, 0.4, 1);
+  }
+}
+
+/* celestials */
+
+.comet,
+.satelite {
+  --celestial-startY: 50px;
+  --celestial-startX: 500px;
+  --celestial-speed: 0.5s;
+  --celestial-path-left: 100px;
+  --celestial-path-right: 900px;
+  --bottom: 600px;
+  display: inline-block;
+  /*   border: 1px solid white; */
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: var(--celestial-startX);
+  top: var(--celestial-startY);
+  text-align: center;
+  line-height: 55px;
+}
+
+.fas.fa-meteor {
+  font-size: 30px;
+  color: red;
+}
+
+.fas.fa-satellite {
+  font-size: 30px;
+  color: green;
+}
+
+.celestial-animation-left {
+  animation-name: celestial-left;
+  animation-duration: var(--celestial-speed);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.celestial-animation-right {
+  animation-name: celestial-right;
+  animation-duration: var(--celestial-speed);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.celestial-animation-down {
+  animation-name: celestial-down;
+  animation-duration: var(--celestial-speed);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+@keyframes celestial-left {
+  0% {
+    top: var(--celestial-startY);
+    left: var(--celestial-startX);
+  }
+  100% {
+    top: var(--bottom);
+    left: var(--celestial-path-left);
+  }
+}
+
+@keyframes celestial-right {
+  0% {
+    top: var(--celestial-startY);
+    left: var(--celestial-startX);
+  }
+  100% {
+    top: var(--bottom);
+    left: var(--celestial-path-right);
+  }
+}
+
+@keyframes celestial-down {
+  0% {
+    top: var(--celestial-startY);
+    left: var(--celestial-startX);
+  }
+  100% {
+    top: var(--bottom);
+    left: var(--celestial-startX);
+  }
+}
