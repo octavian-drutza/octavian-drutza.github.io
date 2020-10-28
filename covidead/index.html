@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/fontawesome-free/css/all.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="central-message"></div>
+    <div class="main">
+      <div id="grid" class="container-fluid"></div>
+    </div>
+    <div class="score-container">
+      <button type="button" class="btn btn-info" id="restart">RESTART</button>
+      <div id="turns">
+        Turns:
+        <span class="turns">0</span>
+      </div>
+      <div id="infected-info">
+        Infected Humans: <span class="infected-info">0</span>
+      </div>
+      <div id="healthy-info">
+        Healthy Humans: <span class="healthy-info">0</span>
+      </div>
+      <div id="empty-info">Empty Spaces: <span class="empty-info">0</span></div>
+      <div id="masked-info">
+        Masked Humans: <span class="masked-info">0</span>
+      </div>
+      <div id="dead-info">Died this Turn: <span class="dead-info">0</span></div>
+      <button type="button" class="btn btn-info" id="next-turn">
+        NEXT TURN
+      </button>
+    </div>
+    <div class="auto">
+      <button type="button" class="btn btn-primary" id="automation">
+        GET DECISION
+      </button>
+      <button type="button" class="btn btn-primary" id="automation-see">
+        VIEW DECISION : OFF
+      </button>
+      <button type="button" class="btn btn-primary" id="automation-use">
+        USE DECISION
+      </button>
+      <span id="percentage">0</span>
+    </div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
